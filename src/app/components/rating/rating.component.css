@@ -1,0 +1,12 @@
+.star-icon{
+    color: #dddddd;
+    font-size: 18px;
+    position: relative;
+}
+.star-icon.full:before{
+    color: #FDE16D;
+    content: '\2605';
+    position: absolute;
+    left: 0;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+}

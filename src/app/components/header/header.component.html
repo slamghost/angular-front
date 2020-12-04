@@ -1,0 +1,33 @@
+<header>
+    <nav class="navbar header-bg">
+
+    </nav>
+    <div class="bg-f8">
+        <div id="header-wrapper" class="container">
+            <div class="row center-content">
+                <div class="col-md-4">
+                    <h2 *ngIf="router.url !== '/create-reservation'" class="text-title">
+                        Reservations List
+                    </h2>
+                    <h3 *ngIf="router.url === '/create-reservation'" class="text-title">
+                        Create Your Reservation
+                    </h3>
+                </div>
+                <div class="col-md-4 d-none d-sm-block">
+                    <p class="text-md">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+
+                <div class="col-md-3 offset-md-1">
+                    <button *ngIf="router.url === '/create-reservation' || router.url.indexOf('/edit-reservation') === 0" class="btn btn-block mybutton"
+                        routerLink="">Reservation List</button>
+                    <button *ngIf="router.url !== '/create-reservation' && router.url.indexOf('/edit-reservation') !== 0" class="btn btn-block mybutton"
+                        routerLink="create-reservation">Create Reservation</button>
+                </div>
+            </div>
+
+        </div>
+    </div> 
+</header>

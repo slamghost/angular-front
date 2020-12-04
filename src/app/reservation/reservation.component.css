@@ -1,0 +1,65 @@
+.reservation-wrapper{
+    background-color:#ffffff;
+     padding: 22px;
+}
+.order-select{
+    border-radius: 0;
+    padding: 5px 27px;    
+}
+.order-select:focus{
+    border-color: gray;
+    outline: none;
+}
+.text-sub{
+  
+    color:#afafaf;    
+}
+
+#reservation-list{
+
+    border-spacing: 0 1em;
+    border-collapse: separate;
+}
+#reservation-list tr{
+    background-color: #efefef;    
+}
+
+#reservation-list td{   
+    border: 0;
+    padding: 0.50em;
+    vertical-align: middle;
+}
+#reservation-list td:last-child{   
+    width: 20%;
+}
+@media (max-width:801px) {
+    .mybutton, .img-container{
+        display: none;
+    }
+ 
+}
+ 
+.icon-edit > svg{
+ width: 14px;
+ height:14px; 
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link{
+
+    background-color: #5d5d5d !important;
+    border-color:#5d5d5d !important;
+    margin: 0px 1px 0px 1px !important; 
+     
+}
+ngb-pagination ::ng-deep .page-item{
+    margin: 0px 1px 0px 1px !important;
+    
+}
+ngb-pagination ::ng-deep .page-link {
+    color: #5d5d5d !important;
+    border-radius: 4px !important
+}
+
+ngb-pagination ::ng-deep .page-item.active > .page-link{
+    color:#ffffff !important;    
+}

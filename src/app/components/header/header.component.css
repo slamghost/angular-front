@@ -1,0 +1,20 @@
+.header-bg{
+
+    background-image: url('../../../assets/images/background-header.jpg');
+    height: 170px;
+    background-size: cover;
+    background-position:100%;
+}
+.text-title{
+    color: #d16a63;
+}
+#header-wrapper{
+    padding-top: 7px; 
+    padding-bottom: 7px;
+}
+ 
+@media (max-width:801px) {
+    .header-bg{
+        height: 44px;
+    }
+}

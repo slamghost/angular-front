@@ -1,0 +1,84 @@
+<div id="create-reservation-wrapper">
+    <form ngSubmit="onSubmit()">
+        <div class="col-md-12">
+            <div class="row" style="background-color: #ffffff; padding: 9px 0px;">
+
+                <div class="col-md-3 mb-1">
+                    <div>
+                        <span class="icon-inside">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path
+                                    d="M7 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1c2.15 0 4.2.4 6.1 1.09L12 16h-1.25L10 20H4l-.75-4H2L.9 10.09A17.93 17.93 0 0 1 7 9zm8.31.17c1.32.18 2.59.48 3.8.92L18 16h-1.25L16 20h-3.96l.37-2h1.25l1.65-8.83zM13 0a4 4 0 1 1-1.33 7.76 5.96 5.96 0 0 0 0-7.52C12.1.1 12.53 0 13 0z" />
+                            </svg>
+                        </span>
+
+                        <input (keyup)="checkContactName()" #name="ngModel" required type="text" [(ngModel)]="reservation.owner.name"
+                            class="form-control" [ngModelOptions]="{standalone: true}" placeholder="Contact Name..." />
+                        <div *ngIf="name.invalid && (name.dirty || name.touched) || (!validForm && name.invalid)"
+                            class="alert alert-danger text-xs">
+                            Name
+                            required</div>
+
+                    </div>
+                </div>
+                <div class="col-md-3 mb-1 ">
+                    <div>
+                        <span class="icon-inside">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path
+                                    d="M15 9a3 3 0 0 0 3-3h2a5 5 0 0 1-5.1 5 5 5 0 0 1-3.9 3.9V17l5 2v1H4v-1l5-2v-2.1A5 5 0 0 1 5.1 11H5a5 5 0 0 1-5-5h2a3 3 0 0 0 3 3V4H2v2H0V2h5V0h10v2h5v4h-2V4h-3v5z" />
+                            </svg>
+                        </span>
+                        <select #type="ngModel" required [(ngModel)]="reservation.owner.type" class="form-control"
+                            [ngModelOptions]="{standalone: true}">
+                            <option value="" selected disabled>Contact type</option>
+                            <option *ngFor="let item of contactTypes" [value]="item">{{item}}</option>
+                        </select>
+                        <div *ngIf="type.invalid && (type.dirty || type.touched) || (!validForm && type.invalid)"
+                            class="alert alert-danger text-xs">
+                            Type
+                            required</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-1 relative">
+
+                    <span class="icon-inside">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path
+                                d="M20 18.35V19a1 1 0 0 1-1 1h-2A17 17 0 0 1 0 3V1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4c0 .56-.31 1.31-.7 1.7L3.16 8.84c1.52 3.6 4.4 6.48 8 8l2.12-2.12c.4-.4 1.15-.71 1.7-.71H19a1 1 0 0 1 .99 1v3.35z" />
+                        </svg>
+                    </span>
+                    <input type="tel" [(ngModel)]="reservation.owner.phone" class="form-control" placeholder="Phone:"
+                        [ngModelOptions]="{standalone: true}" />
+                </div>
+                <div class="col-md-3 mb-1 relative">
+                    <span class="icon-inside">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path
+                                d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z" />
+                        </svg>
+                    </span>
+                    <input #birthdate="ngModel" required type="text" #d="ngbDatepicker" name="dpicker" ngbDatepicker
+                        [(ngModel)]="birthdateTemp" class="form-control" placeholder="Birth Date:" (click)="d.toggle()"
+                        (dateSelect)="onDateSelect()" [ngModelOptions]="{standalone: true}" />
+
+                    <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched) || (!validForm && birthdate.invalid)"
+                        class="alert alert-danger text-xs">Birthdate
+                        required</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">            
+                <ckeditor [ngModelOptions]="{standalone: true}"  [(ngModel)]="reservation.description" [editor]="Editor" data="<p>Description here!</p>"></ckeditor>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 text-right">
+                <button (click)="addReservation()" class="btn btn-send border-radius-0">Send</button>
+            </div>
+        </div>
+    </form>
+</div>

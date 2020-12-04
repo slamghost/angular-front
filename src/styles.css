@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* utils*/
+body{
+    background-color: #efefef;
+}
+.padding-b-10{
+    padding-bottom: 10px;
+}
+.padding-t-30{
+    padding-top: 30;
+}
+.mybutton {
+    background-color: #9f9f9f;
+    border-radius: 0;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.text-xs{
+    font-size: 11px;
+}
+.text-sm{
+    font-size: 12px;
+}
+.text-md{
+    font-size: 14px;
+}
+.text-lg{
+    font-size: 18px;
+}
+.w-full{
+    width: 100%;
+}
+.bg-f8{
+    background-color: #f8f8f8;
+}
+.center-content{
+    justify-content: center; 
+    align-items: center;
+}
+.border-radius-0{
+    border-radius: 0;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.relative{
+    position: relative;
+}
+.absolute{
+    position:absolute;
+}
+.icon-inside{
+    position: absolute;
+    left: 20px;
+    top: 9px;
+}
+.icon-inside svg{
+    width: 24px;
+    height: 24px;
+    fill: #cdcdcd;
+}
+.alert-danger{
+    padding: 3px;
+    border-radius: 0;
+}
+.top-7{
+    top: 7px !important;
+}

@@ -1,0 +1,17 @@
+input, select{
+    border-radius: 0;
+    cursor: pointer;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 32px;
+    
+}
+.btn-send {
+    background-color: #bc0001;
+    color: #ffffff;
+}
+@media (max-width:801px) {
+    .btn-send{
+        width: 100%;
+    }
+}

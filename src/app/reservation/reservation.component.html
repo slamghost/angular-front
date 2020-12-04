@@ -1,0 +1,90 @@
+<div class="reservation-wrapper">
+    <div class="row padding-b-10">
+        <div class="col-md-3">
+            <span class="icon-inside top-7">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path
+                        d="M6.59 12.83L4.4 15c-.58.58-1.59 1-2.4 1H0v-2h2c.29 0 .8-.2 1-.41l2.17-2.18 1.42 1.42zM16 4V1l4 4-4 4V6h-2c-.29 0-.8.2-1 .41l-2.17 2.18L9.4 7.17 11.6 5c.58-.58 1.59-1 2.41-1h2zm0 10v-3l4 4-4 4v-3h-2c-.82 0-1.83-.42-2.41-1l-8.6-8.59C2.8 6.21 2.3 6 2 6H0V4h2c.82 0 1.83.42 2.41 1l8.6 8.59c.2.2.7.41.99.41h2z" />
+                    </svg>
+            </span>
+            <select #mySelect class="form-control order-select cursor-pointer" (change)='order(mySelect.value)'>
+                <option value="" selected disabled>Sort By</option>
+                <option *ngFor="let item of sorting" [value]="item.value">
+                    {{item.name}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div *ngIf="reservations" class="table-responsive">
+
+                <table id="reservation-list" class="table table-striped">
+                    <tr
+                        *ngFor="let item of reservations | slice: (currentPage-1) * itemsPerPage : (currentPage-1) * itemsPerPage + itemsPerPage">
+
+                        <td>
+
+                            <div class="col-md-3 px-0 float-left img-container">
+                                <img src="../../assets/images/1.jpg" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-9 float-left">
+                                <span class="d-block text-md">
+                                    Island Creek Lorem Ipsum
+                                </span>
+                                <span class="text-xs d-block text-sub">
+                                    Saturday, May 21, 21:00 pm
+                                </span>
+                            </div>
+                        </td>
+                        <td class="d-none d-md-block d-lg-block d-xl-block">
+                            <div class="text-sm">
+                               <span [innerHTML]="item.description">
+
+                               </span>
+                            </div>
+                        </td>
+
+                        <td>
+                            <span>Ranking</span>
+                            <app-rating>
+                            </app-rating>
+                        </td>
+                        <td class="text-right">
+                            <a [routerLink]="['/edit-reservation', item.id]" routerLinkActive="router-link-active">
+
+                                <button class="btn mybutton">
+                                    Edit
+                                </button>
+
+                                <span class="icon-edit d-inline-block d-sm-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M12.3 3.7l4 4L4 20H0v-4L12.3 3.7zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z" />
+                                    </svg>
+                                </span>
+                            </a>
+
+                            &nbsp;|&nbsp;
+                            <span (click)="deleteReservation(item.id)" class="icon-edit d-inline-block d-sm-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path
+                                        d="M6 2l2-2h4l2 2h4v2H2V2h4zM3 6h14l-1 14H4L3 6zm5 2v10h1V8H8zm3 0v10h1V8h-1z" />
+                                </svg>
+                            </span>
+                            <button (click)="deleteReservation(item.id)" class="btn mybutton">Delete</button>
+
+                        </td>
+                    </tr>
+                </table>
+                <ngb-pagination size="sm" #numPages [(page)]="currentPage" [(pageSize)]="itemsPerPage"
+                    [collectionSize]="reservations.length" [maxSize]="10" [rotate]="true" [ellipses]="false"
+                    (pageChange)="onPageChange(currentPage)">
+                </ngb-pagination>
+            </div>
+        </div>
+
+    </div>
+
+</div>
